@@ -1,1 +1,14 @@
-this contains how to run the project
+Hi Everyone ,
+to run the code 
+
+clone the repo in your system 
+run npm i for backend folder
+run node index.js
+backend code start running
+create a react app in your local sytem using command npx create-react-app foldername,
+copy frontend folder and  replace the contents of that ,
+run npm i and run npm run start command frontend code start running,
+
+if want to test backend code using postman
+http://localhost:{your port number}/{api end point}
+
