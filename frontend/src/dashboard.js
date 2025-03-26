@@ -27,19 +27,33 @@ export const Dashboard =()=>{
             dispatch({type :"saveGetResponse", payload : []})
         }
     }
-return (
-    <>{
-        saveGetResponse && saveGetResponse.length>0 ?
-        saveGetResponse.map((item,index)=>{
-            return(<div><div>s.no. :{index+1}<button className='btn danger' onClick={()=>{handleDelete(item.id)}}>delete book</button><button onClick ={() =>{ dispatch({type :"updateItemId", payload : item.id})
-                dispatch({type :"showDashboard", payload : false})}}>Edit Details</button>
-                <div>Book Name : {item.name}</div>
-            <div>Book Description : {item.description}</div>
-            <div>Book Amount : {item.rupees}</div><br/>
-            </div>
-            </div>
-            )
-        })
-    :<div>fetching data.....</div>}</>
-)
+    return (
+        <>
+            {
+                saveGetResponse && saveGetResponse.length > 0 ? (
+                    <>
+                        {saveGetResponse.map((item, index) => (
+                            <div key={index}>
+                                <div>
+                                    s.no. : {index + 1}
+                                    <button className='btn danger' onClick={() => handleDelete(item.id)}>delete book</button>
+                                    <button onClick={() => {
+                                        dispatch({ type: "updateItemId", payload: item.id });
+                                        dispatch({ type: "showDashboard", payload: false });
+                                    }}>Edit Details</button>
+                                    <div>Book Name : {item.name}</div>
+                                    <div>Book Description : {item.description}</div>
+                                    <div>Book Amount : {item.rupees}</div><br />
+                                </div>
+                            </div>
+                        ))}
+                        <button onClick ={()=>{ dispatch({type :"showDashboard", payload : false})}}>Add Book</button>
+                    </>
+                ) : (
+                    <div>fetching data.....</div>
+                )
+            }
+        </>
+    );
+    
 }
